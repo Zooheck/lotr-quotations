@@ -19,10 +19,11 @@ const rootReducer = (state = initialState, action) => {
                 isLoading: true
             }
         case FETCH_CHARACTER_SUCCESS:
+            console.log(action.payload)
             return {
                 ...state,
                 isLoading: false,
-                character: action.payload.name
+                character: action.payload
             }
         case FETCHING_QUOTATIONS: {
             return {

@@ -12,7 +12,7 @@ class CharacterSelect extends Component {
     }
     componentWillReceiveProps(newProps) {
       if (newProps.character !== this.props.character) {
-        this.props.history.push(`/${newProps.character}`)
+        this.props.history.push(`/${newProps.character.name}`)
       }
     }
     handleChange = e => {
