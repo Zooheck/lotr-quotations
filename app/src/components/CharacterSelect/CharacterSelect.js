@@ -24,7 +24,11 @@ class CharacterSelect extends Component {
     }
     getQuotations = e => {
       e.preventDefault()
-      this.props.getCharacter(this.state.character)
+      if (this.state.character === 0 || this.state.character === "") {
+        return;
+      } else {
+        this.props.getCharacter(this.state.character)
+      }
     }
   render() {
     if (this.props.isLoading) {
