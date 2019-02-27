@@ -2,7 +2,8 @@ import {
     FETCHING_CHARACTER,
     FETCH_CHARACTER_SUCCESS,
     FETCHING_QUOTATIONS,
-    FETCH_QUOTATIONS_SUCCESS
+    FETCH_QUOTATIONS_SUCCESS,
+    RESET_CHARACTER
 } from '../actions/index'
 
 const initialState = {
@@ -36,6 +37,13 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 posts: action.payload
+            }
+        case RESET_CHARACTER:
+            return {
+                ...state,
+                character: '',
+                posts: [],
+                isLoading: false
             }
         default:
             return state

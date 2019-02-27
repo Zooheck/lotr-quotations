@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { getPosts } from '../../actions/index.js'
+import { getPosts, resetCharacter } from '../../actions/index.js'
 
 import Quotation from '../Quotation/Quotation.js'
 
@@ -17,6 +17,11 @@ class QuotationList extends Component {
     e.preventDefault()
     console.log(this.props.posts[0].text)
   }
+  back = e => {
+    e.preventDefault()
+    this.props.history.push('/')
+    this.props.resetCharacter()
+  }
   render() {
       return (
         <div>
@@ -25,6 +30,7 @@ class QuotationList extends Component {
               <Quotation post={post} />
             )
           })}
+          <button onClick={this.back}>Return to Character Selection</button>
         </div>
       )
     }
@@ -36,4 +42,4 @@ const mapStateToProps = state => ({
   isLoading: state.isLoading
 })
 
-export default connect(mapStateToProps, { getPosts } )(QuotationList)
+export default connect(mapStateToProps, { getPosts, resetCharacter } )(QuotationList)

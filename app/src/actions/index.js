@@ -6,6 +6,7 @@ export const FETCH_CHARACTER_SUCCESS = 'FETCH_CHARACTER_SUCCESS'
 export const FETCHING_QUOTATIONS = 'FETCHING_QUOTATIONS'
 export const FETCH_QUOTATIONS_SUCCESS = 'FETCH_QUOTATIONS_SUCCESS'
 
+export const RESET_CHARACTER = 'RESET_CHARACTER'
 
 const baseUrl = 'https://lotr-quotations.herokuapp.com/api/';
 
@@ -38,4 +39,8 @@ export const getPosts = userId => dispatch => {
         .catch(err => {
             console.log(err)
         })
+}
+
+export const resetCharacter = () => dispatch => {
+    dispatch({ type: RESET_CHARACTER })
 }
